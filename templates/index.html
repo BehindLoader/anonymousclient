@@ -1,8 +1,17 @@
 <html>
     <head>
-        <title>{{ title }} - Microblog</title>
+        <title> {{ site.title }} </title>
+        <link rel="stylesheet" type="text/css" href="src/css/main.css" />
     </head>
     <body>
-        <h1>Hello, {{ user.username }}!</h1>
+        <div id="app"></div>
+
+        <script>
+            window.options = {
+                board: "{{ site.board }}",
+            }
+        </script>
+        <script src="/src/libs/require.js"></script>
+        <script src="/src/js/init.js"></script>
     </body>
 </html>
