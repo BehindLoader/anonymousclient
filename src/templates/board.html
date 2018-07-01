@@ -1,0 +1,18 @@
+<script id="board-thread-list" type="text/html">
+    <div class="title"></div>
+</script>
+
+<script id="board-thread-item" type="text/html">
+    <table class="thread-item-body">
+        <tr>
+            <td colspan="2"><i>#<%-num%></i> <b><%- name %></b> <%-subject%></td>
+        </tr>
+        <tr>
+            <td class="picrelated"><div class="image" style="background-image:url('http://2ch.hk/<%- files[0].thumbnail %>')"></div></td>
+            <td class="content"><%= comment %></td>
+        </tr>
+        <tr>
+            <td colspan="2">Постов: <%-posts_count%> Файлов: <%-files_count%></td>
+        </tr>
+    </table>
+</script>
