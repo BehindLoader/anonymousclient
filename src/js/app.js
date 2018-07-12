@@ -18,8 +18,14 @@ define([
         regions: {
             'content': '#content',
         },
+        events: {
+            'click @ui.left': 'leftClick',
+            'click @ui.right': 'rightClick',
+            'click @ui.center': 'centerClick',
+        },
 
         history: [],
+        headerEvents: {},
 
         initialize: function() {
             this.setTheme('darkTheme'); // TODO CSS BY COOKIE
@@ -46,7 +52,18 @@ define([
         },
 
         setHeader: function(options) {
-
+            if (options.left) {
+                this.ui.left.text(options.left.content);
+                this.headerEvents.left = options.left.event;
+            }
+            if (options.right) {
+                this.ui.right.text(options.right.content);
+                this.headerEvents.right = options.right.event;
+            }
+            if (options.center) {
+                this.ui.center.text(options.center.content);
+                this.headerEvents.center = options.center.event;
+            }
         },
 
         setView: function(view) {
@@ -57,12 +74,35 @@ define([
             this.getRegion('content').show(this.view);
         },
 
+        // CLICK EVENTS
+        leftClick: function(){
+            if (this.headerEvents.left) {
+                this.headerEvents.left.apply(this);
+            }
+        },
+        rightClick: function(){
+            if (this.headerEvents.right) {
+                this.headerEvents.right.apply(this);
+            }
+        },
+        centerClick: function(){
+            if (this.headerEvents.center) {
+                this.headerEvents.center.apply(this);
+            }
+        },
+        backward: function() {
+            this.view.destroy();
+            this.view = this.history.pop();
+            // this.getRegion('content').show(this.view);
+            this.render();
+        },
+
         // LOADING
         startLoading: function() {
-            this.ui.loading.animate({ height: '50px' }, 300)
+            this.ui.loading.animate({ height: '50px', opacity: 1 }, 300)
         },
         stopLoading: function() {
-            this.ui.loading.animate({ height: '0px' }, 100)
+            this.ui.loading.animate({ height: '0px', opacity: 0 }, 100)
         },
 
         // THEMES

@@ -14,7 +14,7 @@ define([
 
         onClick: function() {
             var view = new BoardView({model: this.model});
-            window.app.setView(view)
+            window.app.setView(view);
         },
     });
 
@@ -31,6 +31,17 @@ define([
         },
         
         onRender: function() {
+            window.app.setHeader({
+                center: {
+                    content: 'Доски'
+                },
+                left: {
+                    content: ''
+                },
+                right: {
+                    content: ''
+                }
+            })
             this.collection = new Collection();
             this.collection.fetch({
                 success: function() {

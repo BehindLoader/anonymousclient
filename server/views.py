@@ -3,6 +3,7 @@ from server import server, settings
 from flask import render_template, send_file, jsonify
 from os import path
 import requests
+from io import BytesIO
 
 @server.route('/')
 @server.route('/index')
@@ -46,6 +47,15 @@ def get_thread_list(board = 'b'):
 def get_thread_posts(board = 'b', thread = 0):
     r = requests.get('http://2ch.hk/%s/res/%s.json' % (board, thread))
     return jsonify( r.json()['threads'][0]['posts'] )
+
+@server.route('/api/img/<path:image>')
+def get_image(image):
+    filetype = image.split('.')[-1]
+    r = requests.get('https://2ch.hk/' + image, stream=True)
+    response = BytesIO()
+    response.write(r.content)
+    response.seek(0)
+    return send_file(response, mimetype="application/"+filetype)
 
 @server.route('/src/<path:filename>')
 def get_static(filename):

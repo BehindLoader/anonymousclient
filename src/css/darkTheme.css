@@ -16,3 +16,8 @@ body.darkTheme {
 .darkTheme #header .menu-btn {
     color: #f90;
 }
+
+.darkTheme .thread .item {
+    background-color: #222;
+    border-bottom: 1px solid #444;
+}
