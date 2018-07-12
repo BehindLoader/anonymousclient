@@ -14,6 +14,6 @@ requirejs.config({
 });
 
 require(['app'], function(App){
-    window.app = new App(window.options);
+    window.app = new App();
     window.app.render();
 })

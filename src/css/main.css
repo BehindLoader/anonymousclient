@@ -1,48 +1,40 @@
-:root {
-    --main-background-color: #ffebd2;
-    --main-thread-color: #b5b7b4;
-    --main-thread-color-hover: #7d899a;
-    --thread-image-size: 15%;
-}
-
-@keyframes thread-animation {
-    from {background: var(--main-thread-color)}
-    to {background: var(--main-thread-color-hover)}
-}
-
 body {
-    background: var(--main-background-color);
-    padding: 0%;
-    margin: 0%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
-.thread-item {
-    background: var(--main-thread-color);
-    margin: 15px;
+.boards .item {
     padding: 15px;
-    border-radius: 5px;
     cursor: pointer;
 }
-.thread-item:hover {
-    background: var(--main-thread-color-hover);
-    animation-name: thread-animation;
-    animation-duration: 1s;
+
+#content {
+    margin-top: 55px;
 }
 
-.thread-item-body td{
-    vertical-align: top;
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 0;
 }
-.thread-item-body .picrelated {
-    width: var(--thread-image-size);
+#header .left {
+    position: fixed;
+    top: 0;
+    left: 0;
 }
-.thread-item-body .content {
-    width: calc(90% - var(--thread-image-size));
-    max-height: 250px;
+#header .right {
+    position: fixed;
+    top: 0;
+    right: 0;
 }
-
-.picrelated div {
-    width: 128px;
-    height: 128px;
-    background-position: center;
-    background-size: cover;
+#header .center {
+    text-align: center;
+    font-weight: bold;
+}
+#header .menu-btn {
+    padding: 15px;
+    font-weight: bold;
 }

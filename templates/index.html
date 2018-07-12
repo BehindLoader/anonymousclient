@@ -4,7 +4,9 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <title> {{ site.title }} </title>
-        <link rel="stylesheet" type="text/css" href="src/css/main.css" />
+        <link rel="stylesheet" type="text/css" href="/src/css/main.css" />
+        <link rel="stylesheet" type="text/css" href="/src/css/darkTheme.css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
     </head>
     <body>
         <div id="app"></div>
@@ -13,6 +15,7 @@
             window.options = {
                 board: "{{ site.board }}",
                 thread: Number("{{ site.thread }}"),
+                answer: Number("{{ site.answer }}"),
             }
         </script>
         <script src="/src/libs/require.js"></script>

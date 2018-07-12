@@ -1,15 +1,13 @@
 <script id="main-template" type="text/html">
-    <div id="site-header">
-        <div id="site-header-boards"></div>
+    <div id="header">
+        <div class="left menu-btn"></div>
+        <div class="right menu-btn"></div>
+        <div class="center">Двач Клиент</div>
     </div>
-    <div id="site-body"></div>
-    <div id="site-footer"></div>
+    <div id="loading">Загрузка</div>
+    <div id="content"></div>
 </script>
 
-<script id="header-template" type="text/html">
-    <table>
-        <tr>
-            LOL
-        </tr>
-    </table>
+<script id="boards-item" type="text/html">
+    <b>/<%- id %>/</b> <%- name %>
 </script>

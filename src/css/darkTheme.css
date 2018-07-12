@@ -1,0 +1,18 @@
+body.darkTheme {
+    background: #000;
+    color: #fff;
+}
+
+.darkTheme .boards .item {
+    background-color: #222;
+    border-bottom: 1px solid #444;
+}
+
+.darkTheme #header {
+    background-color: #222;
+    border-bottom: 1px solid #444;
+}
+
+.darkTheme #header .menu-btn {
+    color: #f90;
+}
