@@ -1,7 +1,8 @@
 define([
     'text!templates/board.html',
-    'marionette'
-], function(html, Mn) {
+    'marionette',
+    'js/thread'
+], function(html, Mn, ThreadView) {
     'use strict';
 
     var ItemView = Mn.View.extend({
@@ -15,7 +16,8 @@ define([
             'click': 'onClick',
         },
         onClick: function() {
-            debugger
+            var view = new ThreadView({  });
+            window.app.setView(view);
         },
         onRender: function() {
             this.ui.image.css({'background-image': 'url("/api/img' + this.model.get('files')[0].thumbnail + '")'});
@@ -27,6 +29,7 @@ define([
         childView: ItemView,
 
         onRender: function() {
+            var this_ = this;
             window.app.setHeader({
                 left: {
                     content: 'Назад',
@@ -34,6 +37,17 @@ define([
                 },
                 center: {
                     content: this.model.get('name')
+                },
+                right: {
+                    content: 'Обновить',
+                    event: function() {
+                        window.app.startLoading();
+                        this_.collection.fetch({
+                            success: function() {
+                                window.app.stopLoading();
+                            }
+                        })
+                    }
                 }
             });
 
