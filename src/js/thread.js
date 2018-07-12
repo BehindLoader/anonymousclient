@@ -5,7 +5,17 @@ define([
     'use strict';
 
     var AttachItem = Mn.View.extend({
+        className: 'pic',
         template: $(html).filter('#thread-attach')[0].outerHTML,
+        events: {
+            'click': 'onClick',
+        },
+        onRender: function() {
+            this.$el.css({ 'background-image': 'url("/api/img' + this.model.get('thumbnail') + '")' });
+        },
+        onClick: function() {
+            debugger;
+        },
     });
 
     var AttachCollection = Mn.CollectionView.extend({
@@ -13,6 +23,7 @@ define([
     });
 
     var ItemView = Mn.View.extend({
+        tagName: 'table',
         className: 'item',
         template: $(html).filter('#thread-item')[0].outerHTML,
         regions: {
@@ -33,6 +44,14 @@ define([
         childView: ItemView,
 
         onRender: function() {
+            window.app.setHeader({
+                center: {
+                    content: 'Тред '+ this.model.get('num'),
+                },
+                right: {
+                    content: 'Меню'
+                }
+            })
             this.collection = new Backbone.Collection();
             this.collection.url = window.location.origin + '/api/get/' +
                 window.options.board + '/' + this.model.attributes.num;

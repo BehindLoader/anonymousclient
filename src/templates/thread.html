@@ -1,17 +1,15 @@
 <script id="thread-item" type="text/html">
-    <div class="info">
-        <% if (op) { %>
-            <b>OP</b>
-        <% } %>
-        <% if (email) { %>
-            <%- email %>
-        <% } %>
-        <%- date %>
-    </div>
-    <div class="attach"></div>
-    <div class="text"><%= comment %></div>
+    <tr>
+        <td class="info" style="text-align:left">
+            <%- name %><% if (op) { %> (OP) <% } %>
+            <% if (email == 'mailto:sage') { %><b>САЖА</b><% } %>
+        </td>
+        <td class="info" style="text-align:right">
+            <%- date %>
+        </td>
+    </tr>
+    <tr><td colspan="2" class="attach"></td></tr>
+    <tr><td colspan="2" class="text"><%= comment %></td></tr>
 </script>
 
-<script id="thread-attach" type="text/html">
-    <div class="pic"></div>
-</script>
+<script id="thread-attach" type="text/html"></script>

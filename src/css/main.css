@@ -54,6 +54,7 @@ body {
     padding: 15px;
     margin: 5px 0;
     vertical-align: top;
+    cursor: pointer;
 }
 .thread .item .image {
     width: 10%;
@@ -92,4 +93,5 @@ body {
     cursor: pointer;
     background-size: cover;
     padding: 10px;
+    margin: 10px;
 }

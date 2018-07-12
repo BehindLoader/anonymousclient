@@ -1,8 +1,10 @@
 define([
     'text!templates/main.html',
     'marionette',
-    'js/menu'
-], function(html, Mn, MenuView) {
+    'js/menu',
+    'js/board',
+    'js/thread',
+], function(html, Mn, MenuView, BoardView, ThreadView) {
     'use strict';
 
     var View = Mn.View.extend({
@@ -40,9 +42,13 @@ define([
             if (this.answer) {
 
             } else if (this.thread) {
-
+                this.view = new ThreadView({
+                    parent: this,
+                })
             } else if (this.board) {
-
+                this.view = new BoardView({
+                    parent: this,
+                })
             } else { // main menu
                 this.view = new MenuView({
                     parent: this,
@@ -91,9 +97,11 @@ define([
             }
         },
         backward: function() {
-            this.view.destroy();
-            this.view = this.history.pop();
-            // this.getRegion('content').show(this.view);
+            if (this.history) {
+                this.view.destroy();
+            } else {
+                
+            }
             this.render();
         },
 
@@ -102,7 +110,7 @@ define([
             this.ui.loading.animate({ height: '50px', opacity: 1 }, 300)
         },
         stopLoading: function() {
-            this.ui.loading.animate({ height: '0px', opacity: 0 }, 100)
+            this.ui.loading.animate({ height: '0px', opacity: 0 }, 300)
         },
 
         // THEMES

@@ -1,6 +1,14 @@
 <script id="thread-item" type="text/html">
     <tr>
-        <td class="image"><div></div></td>
-        <td class="subject"><%= subject %></td>
+        <td rowspan="2" class="image"><div></div></td>
+        <td colspan="2" class="subject"><%= subject %></td>
+    </tr>
+    <tr>
+        <td style="text-align: left">
+            <%= date %>
+        </td>
+        <td style="text-align: right">
+            Постов: <%- posts_count %>
+        </td>
     </tr>
 </script>
