@@ -16,7 +16,7 @@ define([
             'click': 'onClick',
         },
         onClick: function() {
-            var view = new ThreadView({  });
+            var view = new ThreadView({ model: this.model });
             window.app.setView(view);
         },
         onRender: function() {
@@ -51,7 +51,9 @@ define([
                 }
             });
 
-            this.collection = new Backbone.Collection();
+            window.options.board = this.model.get('id');
+
+            this.collection = new Backbone.Collection({ parent: this });
             this.collection.url = window.location.origin + '/api/get/'
                     + this.model.get('id');
             this.collection.fetch({

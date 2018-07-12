@@ -21,3 +21,14 @@ body.darkTheme {
     background-color: #222;
     border-bottom: 1px solid #444;
 }
+.darkTheme .thread .item .image div {
+    background-color: #000;
+}
+
+.darkTheme .message .item {
+    background-color: #222;
+    border-bottom: 1px solid #444;
+}
+.darkTheme .message .item .pic {
+    background-color: #000;
+}

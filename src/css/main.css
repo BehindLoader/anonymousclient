@@ -70,3 +70,26 @@ body {
     word-break: break-all;
     padding: 10px;
 }
+
+.message .item {
+    width: 100%;
+    margin: 5px 0;
+}
+.message .item .info {
+    padding: 10px;
+}
+.message .item .text {
+    word-break: break-all;
+    padding: 10px;
+}
+.message .item .attach {
+    padding: 10px;
+}
+.message .item .pic {
+    width: 70px;
+    height: 70px;
+    display: inline-block;
+    cursor: pointer;
+    background-size: cover;
+    padding: 10px;
+}

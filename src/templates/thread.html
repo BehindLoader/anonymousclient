@@ -1,22 +1,17 @@
-<script id="thread-list" type="text/html"></script>
+<script id="thread-item" type="text/html">
+    <div class="info">
+        <% if (op) { %>
+            <b>OP</b>
+        <% } %>
+        <% if (email) { %>
+            <%- email %>
+        <% } %>
+        <%- date %>
+    </div>
+    <div class="attach"></div>
+    <div class="text"><%= comment %></div>
+</script>
 
-<script id="thread-note" type="text/html">
-    <table class="thread-item-body">
-        <tr>
-            <td>
-                <a href="#" class="answer"><i>#<%-num%></i></a> 
-                <b><%- name %></b> 
-                <% if (op || number == 1) { %>(OP)<% } %>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <% _.each(files, function(item) { %>
-                    <div class="pined">
-                        
-                    </div>
-                <% }) %>
-            </td>
-        </tr>
-    </table>
+<script id="thread-attach" type="text/html">
+    <div class="pic"></div>
 </script>
